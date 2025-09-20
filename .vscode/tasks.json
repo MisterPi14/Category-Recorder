@@ -27,6 +27,15 @@
 				"$gradle"
 			],
 			"group": "build"
+		},
+		{
+			"label": "Gradle Build App",
+			"type": "shell",
+			"command": "./gradlew.bat assembleDebug",
+			"problemMatcher": [
+				"$gradle"
+			],
+			"group": "build"
 		}
 	]
 }

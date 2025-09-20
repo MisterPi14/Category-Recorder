@@ -270,13 +270,13 @@ fun RecorderControls(canRecord: Boolean, onRequestPermission: () -> Unit) {
         try {
             val category = selectedCategory.ifBlank { "General" }
             val timestamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-            val displayName = "REC_${'$'}timestamp.m4a"
+            val displayName = "REC_${timestamp}.m4a"
 
             val values = ContentValues().apply {
                 put(MediaStore.Audio.Media.DISPLAY_NAME, displayName)
                 put(MediaStore.Audio.Media.MIME_TYPE, "audio/mp4")
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    put(MediaStore.Audio.Media.RELATIVE_PATH, "Recordings/MultiDirRecorder/${'$'}category")
+                    put(MediaStore.Audio.Media.RELATIVE_PATH, "Recordings/MultiDirRecorder/${category}")
                     put(MediaStore.Audio.Media.IS_PENDING, 1)
                 }
                 put(MediaStore.Audio.Media.DATE_ADDED, System.currentTimeMillis() / 1000)
